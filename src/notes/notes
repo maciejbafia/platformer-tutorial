@@ -1,0 +1,39 @@
+Tworzymy klase main i game
+w klasie main wywołujemy konstruktor game
+tworzymy klase Game window która bedzie odpowiedzialna za ramke aplikacji
+klasa GameWindow extends Jframe
+w konstruktorze gameWindow tworzymy okno o zdefiniowanym rozmiarze i ustawiamy preferencje zamykania oraz widoczność
+przekazujemy GameWindow do koinstruktora Game
+Tworzymy GamePanel który extends Jpanel
+Tworzymy metode na paintComponent aby móc "malowac"
+Łączymy gawmeWindow z GamePanel.
+Przekazujemy GamePanel w kontuktor GameWindow
+W konstruktorze GameWindow dodajemy GamePanel do Jframe za pomocą .add(gamePanel z konstruktora)
+W klasie Game przekazujemy GamePanel do konstruktora GameWindow
+Tworzymy osobny pakiet na inputs
+Tworzymy klasy które inplementują odpowiednie inputy
+Dajemy gamePanel focus aby każdy input wiedział gdzie ma iść
+przekazujemy  w gameWindow Mouse i Keyboard inputs poprzez tworzenie nowego obiektu dla Keyboard i Mouse
+Musimy dodać przez metode z klasy component w klasie gamePanel
+Inicjujemy obiekt któy implementuuje obie klasy Listener i motion listener a pozniej przekazujemy ten obiekt jako argument metody add
+--addMouseListener(nazwa obiektu)
+--addMouseMotionListener(nazwa obiektu)
+w keyboardInputs tworzymy konstruktor oraz localVariable GamePanel gamepanel
+w konstruktor przekazujemy gamePanel i przypisujemy this
+W game Panel w konstruktor KeybordInputs wpisujemy this aby odnieść się do tej instancji która właśnie działą 
+Ustawiamy stałe odpowiedzialne za rozmiar kwadratu i zmieniamy wcześniej podane w metodzie malującej kwadrat
+tworzymy metode w GamePanel która ustawia rectangle position i przyjmuje argumenty x i y które dodaje do xDelta i yDelta
+w mouse inputs dodajemy gamePanel
+tworzymy konstruktor w który przekazujemy this.gamePanel
+poprawiamy w gamePanel dodając this przy wywołaniu mouseInputs
+w mouse input tworzymy ciało metody mouseMoved dodając tam gamePanel i wywołując metodeKtóra zmiena pozycje prostokąta
+jako argumety do przekazania w tej metodzie uzywamy maouse event . getX i getY
+Robimy game loop
+implementujemy Runable w Game
+ustawiamy lokalną wartość na FPS_SET i przekazujemy jej ilość fps w których gra ma działać
+w metodzie run ustalamy ile czasu musi minąć na jedną klatkę dziląc  1 i 9 zer przez FPS_SET
+przypisujemy wartość klatki początkowej przez System.nanoTime()
+Oraz wartość klatki końcowej przez System.nanoTime() nano time to wartość aktualnej chwili
+tworzymi nieskończoną pętle w której na wejściu odświerzamy now przez system.nanoTime();
+stawiamy warunek jeśli wynik odejmowania teraz od ostatniej klatki jest większy bądź równy czasowi przewidzianego na klatke (timePerFrame)
+gameloop robi repaint a ostatniej klatce przypisuwana jest wartość now
